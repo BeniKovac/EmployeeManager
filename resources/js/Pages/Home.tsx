@@ -6,12 +6,14 @@ import React from "react";
 import { useState } from "react";
 
 interface Props {
-    recentEmployees: any[];
-    employees: any[];
-    departments: any[];
+    averageEmploymentTime: number,
+    departments: any[],
+    employees: any[],
+    recentEmployees: any[],
+    totalThisMonthEmployees: number
 }
 
-export default function Home({ recentEmployees, employees, departments }: Props) {
+export default function Home({ recentEmployees, employees, departments, totalThisMonthEmployees, averageEmploymentTime }: Props) {
     const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
     return (
@@ -26,6 +28,11 @@ export default function Home({ recentEmployees, employees, departments }: Props)
                 </div>
                 <div className="flex-1 p-6">
                     <MainContent
+                        averageEmploymentTime={averageEmploymentTime}
+                        departments={departments}
+                        employees={employees}
+                        recentEmployees={recentEmployees}
+                        totalThisMonthEmployees={totalThisMonthEmployees}
                         visiblePageIndex={selectedItemIndex}
                     ></MainContent>
                 </div>

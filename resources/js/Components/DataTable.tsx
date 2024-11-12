@@ -16,7 +16,7 @@ const DataTable = ({ data, displayedFields, customRenderers }: Props) => {
       <thead>
         <tr>
           {displayedFields.map((fieldName) => (
-            <DataTableHeader key={fieldName} headerName={fieldName} />
+            <DataTableHeader key={fieldName} headerName={fieldName.split(".")[0].replace('_', ' ')} />
           ))}
         </tr>
       </thead>

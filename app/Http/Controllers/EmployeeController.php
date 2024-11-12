@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -14,13 +13,9 @@ class EmployeeController extends Controller
         return redirect()->back()->with('success', 'Employee updated successfully');
     }
 
-    public function getEmployees()
+    public function destroy(Employee $employee)
     {
-        return Employee::all();
-    }
-
-    public function getRecentEmployees()
-    {
-        return Employee::where('employment_date', '>', Carbon::now()->subMonths(3))->get();
+        $employee->delete();
+        return response()->json(['message' => 'Employee deleted successfully']);
     }
 }

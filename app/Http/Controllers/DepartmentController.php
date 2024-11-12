@@ -12,9 +12,4 @@ class DepartmentController extends Controller
         $employee->update($request->validated());
         return redirect()->back()->with('success', 'Department updated successfully');
     }
-
-    public function getDepartments()
-    {
-        return Department::all();
-    }
 }

@@ -4,12 +4,26 @@ import PageEmployees from './PageEmployees'
 import PageDepartments from './PageDepartments'
 
 interface Props {
-    visiblePageIndex: number
+    averageEmploymentTime: number
+    departments: any[],
+    employees: any[],
+    recentEmployees: any[],
+    totalThisMonthEmployees: number,
+    visiblePageIndex: number,
 }
 
-const MainContent = ({ visiblePageIndex }: Props) => {
-    const pages = [<PageDashboard/>, <PageEmployees/>, <PageDepartments/>];
-
+const MainContent = ({ averageEmploymentTime, departments, employees, recentEmployees, visiblePageIndex, totalThisMonthEmployees }: Props) => {
+    const pages = [
+        <PageDashboard 
+            averageEmploymentTime={averageEmploymentTime}
+            recentEmployees={recentEmployees}
+            totalDepartments={departments.length}
+            totalEmployees={employees.length}
+            totalThisMonthEmployees={totalThisMonthEmployees}
+        />,
+        <PageEmployees employees={employees}/>,
+        <PageDepartments departments={departments}/>
+    ];
     return (
         <>
             {pages[visiblePageIndex]}

@@ -23,11 +23,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::delete('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employees.delete');
-Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.delete');
+Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.create');
+Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
 
-Route::delete('/departments/{id}', [DepartmentController::class, 'destroy'])->name('departments.delete');
-Route::put('/departments/{id}', [DepartmentController::class, 'update'])->name('departments.update');
+Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])->name('departments.delete');
+Route::put('/departments/{department}', [DepartmentController::class, 'update'])->name('departments.update');
 
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');

@@ -7,12 +7,13 @@ interface Props {
     averageEmploymentTime: number
     departments: any[],
     employees: any[],
+    positions: any[],
     recentEmployees: any[],
     totalThisMonthEmployees: number,
     visiblePageIndex: number,
 }
 
-const MainContent = ({ averageEmploymentTime, departments, employees, recentEmployees, visiblePageIndex, totalThisMonthEmployees }: Props) => {
+const MainContent = ({ averageEmploymentTime, departments, employees, positions, recentEmployees, visiblePageIndex, totalThisMonthEmployees }: Props) => {
     const pages = [
         <PageDashboard 
             averageEmploymentTime={averageEmploymentTime}
@@ -21,7 +22,7 @@ const MainContent = ({ averageEmploymentTime, departments, employees, recentEmpl
             totalEmployees={employees.length}
             totalThisMonthEmployees={totalThisMonthEmployees}
         />,
-        <PageEmployees employees={employees}/>,
+        <PageEmployees employees={employees} departments={departments} positions={positions}/>,
         <PageDepartments departments={departments}/>
     ];
     return (

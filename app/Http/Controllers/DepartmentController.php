@@ -12,4 +12,10 @@ class DepartmentController extends Controller
         $employee->update($request->validated());
         return redirect()->back()->with('success', 'Department updated successfully');
     }
+
+    public function destroy(Department $department)
+    {
+        $department->delete();
+        return response()->json(['message' => 'Department ' . strval($department->id) . ' deleted successfully']);
+    }
 }

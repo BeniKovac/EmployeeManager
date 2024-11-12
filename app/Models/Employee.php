@@ -10,7 +10,7 @@ class Employee extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ['name', 'surname', 'position_id', 'department_id'];
+    protected $fillable = ['name', 'surname', 'position_id', 'department_id', 'employment_date'];
 
     public function scopeBasicInfo($query)
     {

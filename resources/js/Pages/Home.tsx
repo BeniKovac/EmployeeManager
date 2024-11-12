@@ -9,17 +9,18 @@ interface Props {
     averageEmploymentTime: number,
     departments: any[],
     employees: any[],
+    positions: any[],
     recentEmployees: any[],
     totalThisMonthEmployees: number
 }
 
-export default function Home({ recentEmployees, employees, departments, totalThisMonthEmployees, averageEmploymentTime }: Props) {
+export default function Home({ recentEmployees, employees, departments, positions, totalThisMonthEmployees, averageEmploymentTime }: Props) {
     const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
     return (
         <AuthenticatedLayout>
             <Head title="Employee Manager" />
-            <div className="flex min-h-screen bg-gray-100">
+            <div className="flex min-h-screen">
                 <div className="w-64 bg-black text-white">
                     <SideBar
                         selectedItemIndex={selectedItemIndex}
@@ -31,6 +32,7 @@ export default function Home({ recentEmployees, employees, departments, totalThi
                         averageEmploymentTime={averageEmploymentTime}
                         departments={departments}
                         employees={employees}
+                        positions={positions}
                         recentEmployees={recentEmployees}
                         totalThisMonthEmployees={totalThisMonthEmployees}
                         visiblePageIndex={selectedItemIndex}

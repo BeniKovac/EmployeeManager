@@ -2,7 +2,11 @@ import React from 'react'
 import DataTable from './DataTable'
 import '../../css/PageDashboard.css'
 
-const PageDashboard = (latestEmployees) => {
+interface Props {
+  recentEmployees: any[]
+}
+
+const PageDashboard = ({ recentEmployees }: Props) => {
   return (
     <>
       <div className="flex mt-4 gap-4">
@@ -27,7 +31,7 @@ const PageDashboard = (latestEmployees) => {
       <div className="flex mt-4 gap-4 custom-right-margin">
         <div className="flex-1 bg-white shadow-lg rounded-lg p-6">
           <h1 className="text-xl font-semibold mb-4 text-black">Recent Employees</h1>
-          <DataTable data={latestEmployees} displayedFields={['id', 'name', 'position', 'department']}></DataTable>
+          <DataTable data={recentEmployees} displayedFields={['id', 'name', 'position', 'department']}></DataTable>
         </div>
         <div className="flex-1"></div>
       </div>

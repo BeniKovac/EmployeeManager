@@ -3,7 +3,11 @@ import DataTable from './DataTable';
 import PrimaryButton from './BreezeComponents/PrimaryButton';
 import SecondaryButton from './BreezeComponents/SecondaryButton';
 
-const PageEmployees = ({ employees }) => {
+interface Props {
+  employees: any[]
+}
+
+const PageEmployees = ({ employees }: Props) => {
   return (
     <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
       <h2 className="p-4 text-lg font-semibold text-gray-700 dark:text-gray-200">

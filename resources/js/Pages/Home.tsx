@@ -2,9 +2,16 @@ import MainContent from "@/Components/MainContent";
 import SideBar from "@/Components/SideBar";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import React from "react";
 import { useState } from "react";
 
-export default function Home() {
+interface Props {
+    recentEmployees: any[];
+    employees: any[];
+    departments: any[];
+}
+
+export default function Home({}: Props) {
     const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
     return (

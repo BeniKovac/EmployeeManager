@@ -11,7 +11,7 @@ interface Props {
     departments: any[];
 }
 
-export default function Home({}: Props) {
+export default function Home({ recentEmployees, employees, departments }: Props) {
     const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
     return (

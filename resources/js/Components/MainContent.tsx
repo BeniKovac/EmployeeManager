@@ -8,13 +8,11 @@ interface Props {
 }
 
 const MainContent = ({ visiblePageIndex }: Props) => {
-    const pageComponents = [PageDashboard, PageEmployees, PageDepartments];
+    const pages = [<PageDashboard/>, <PageEmployees/>, <PageDepartments/>];
 
     return (
         <>
-            {pageComponents.map((Component, index) => (
-                index === visiblePageIndex && <Component />
-            ))}
+            {pages[visiblePageIndex]}
         </>
     )
 }
